@@ -1,0 +1,104 @@
+body {
+  color: white;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(32, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.todo {
+  background-color: whitesmoke;
+  width: 150px;
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  margin: 10px;
+}
+.todo-item {
+  color: black;
+  text-align: center;
+  /*    max-width:100px;
+    max-height:30px;
+    padding: 10px 10px 10px 10px;*/
+}
+.todo-list {
+  list-style: none;
+}
+
+.completed-btn {
+  /* background-image: url('../icons/green_btn.png');*/
+  background-color: green;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  max-height: 20px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.edit-btn {
+  background-image: url("../icons/edit.png");
+
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  max-height: 100px;
+  width: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.trash-btn {
+  /*    background-image: url('../icons/delete_red.png');*/
+  background-color: red;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  max-height: 20px;
+  width: auto;
+  justify-content: end;
+}
+.movie-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+}
+.hidden-modal {
+  display: none;
+}
+.modal-content {
+color:black
+  margin: 5% 10%;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 8px 4px rgba(0, 0, 0, 0.2);
+}
+.close-btn-container {
+  width: 5%;
+  float: right;
+}
+
+.close-btn {
+  position: absolute;
+  font-size: 30px;
+  transition-duration: 0.4s;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  color: tomato;
+  font-weight: bold;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.img-center {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+}
+.text-center {
+  text-align: center;
+}
