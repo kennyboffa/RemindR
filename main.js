@@ -2,7 +2,7 @@
 const todoInput = document.querySelector(".todo-input");
 const addTodoBtn = document.querySelector(".add-todo-btn");
 const todoList = document.querySelector(".todo-list");
-
+const todoRow = document.querySelector(".todo-row");
 
 
 // Event Listeners
@@ -26,7 +26,7 @@ function addTodo(event) {
 
         const todoDiv = document.createElement("div");
         todoDiv.classList.add("todo"); //skapar ovan och lägger sen till med class "todo"
-
+        
 
         const todoItem = document.createElement("li");
         todoItem.classList.add("todo-item");

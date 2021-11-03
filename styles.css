@@ -10,51 +10,76 @@ body {
 
 .todo {
   background-color: whitesmoke;
-  width: 150px;
-  border-radius: 10px;
+  width: 200px;
+  height: 120px;
+  max-height: 200px;
+  border-radius: 50px;
   padding: 5px 5px 5px 5px;
   margin: 10px;
 }
 .todo-item {
-  color: black;
-  text-align: center;
+  color: rgb(58, 17, 17);
+  width: 150px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 20px;
   /*    max-width:100px;
     max-height:30px;
     padding: 10px 10px 10px 10px;*/
 }
 .todo-list {
   list-style: none;
+  float: left;
+  display: inline;
 }
 
 .completed-btn {
-  /* background-image: url('../icons/green_btn.png');*/
-  background-color: green;
-  padding: 5px 5px 5px 5px;
+  background-image: url("icons/green_btn.png");
+  padding: 10px 10px 19px 20px;
+  border-style: hidden;
   border-radius: 10px;
-  max-height: 20px;
-  width: auto;
-  margin-right: 10px;
+  height: 25px;
+  width: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .edit-btn {
-  background-image: url("../icons/edit.png");
-
-  padding: 5px 5px 5px 5px;
+  background-image: url("icons/edit.png");
+  background-color: black;
   border-radius: 10px;
-  max-height: 100px;
-  width: auto;
-  margin-left: 5px;
-  margin-right: 5px;
+  padding: 10px 10px 20px 20px;
+  border-style: hidden;
+  height: 18px;
+  width: 18px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .trash-btn {
-  /*    background-image: url('../icons/delete_red.png');*/
-  background-color: red;
-  padding: 5px 5px 5px 5px;
+  background-image: url("icons/delete_red.png");
+  padding: 10px 10px 20px 20px;
   border-radius: 10px;
-  max-height: 20px;
-  width: auto;
-  justify-content: end;
+  border-style: hidden;
+  height: 20px;
+  width: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .movie-modal {
   position: fixed;
@@ -70,11 +95,14 @@ body {
   display: none;
 }
 .modal-content {
-color:black
-  margin: 5% 10%;
+  color: black;
+  margin: 5% 5%;
   padding: 20px;
   width: 70%;
   box-shadow: 8px 4px rgba(0, 0, 0, 0.2);
+}
+.modalBtn {
+  margin: 10px;
 }
 .close-btn-container {
   width: 5%;
@@ -101,4 +129,46 @@ color:black
 }
 .text-center {
   text-align: center;
+}
+.save-movie-btn {
+  background-color: blue;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: center;
+  color: whitesmoke;
+  width: 80px !important;
+  height: 50px !important;
+  display: flex;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+.remove-movie-btn {
+  background-color: red;
+  border-radius: 10px;
+  margin: 10px;
+  justify-content: center;
+  color: whitesmoke;
+  width: 80px !important;
+  height: 50px !important;
+  display: flex;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+.savedmovies {
+  list-style-type: none;
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  margin: 30px;
+}
+.saved-movie-poster {
+  max-height: 50% !important;
+  max-width: 30% !important;
+}
+.movie-recommendations {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.movieList-item {
+  list-style-type: none;
 }
