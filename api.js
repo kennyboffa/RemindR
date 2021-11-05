@@ -1,30 +1,25 @@
 const searchedMovie = document.querySelector(".movieDiv");
 const savedMoviesDiv = document.querySelector(".savedmovies");
+const savedMoviesListItem = document.querySelector(".saved-moviesList-item");
 const movieList = document.querySelector(".movie-list");
 // const toWatchList = document.querySelector(".to-watch-list");
 
-const body = document.querySelector("body");
+
 const moviemodal = document.querySelector(".movie-modal"); // Dark background behind modal with modal content inside
 const modalContent = document.querySelector(".modal-content"); // Actual modal with content
 const closeButton = document.querySelector(".close-btn"); // An X for closing the modal
 
 const movieItem = document.createElement("li");
 movieItem.classList.add("movieList-item");
+ 
+const removeMovieBtn = document.createElement("button");
+removeMovieBtn.classList.add("remove-movie-btn");
 
 let previousSearch;
 var openedMovie;
 let searchResult;
 let savedMovies = [];
- 
 
-const savedMoviesListItem = document.createElement("li");
-savedMoviesListItem.classList.add("saved-moviesList-item");
-
-const removeMovieBtn = document.createElement("button");
-removeMovieBtn.classList.add("remove-movie-btn");
-
-
-savedMoviesDiv.innerText = "Your to-watch list"
 
 // event listeners
 
@@ -32,7 +27,11 @@ document.querySelector("#searchBtn").addEventListener("click", (event) => {
 
   let searchInput = document.querySelector("#searchBar").value;
 
-if (searchInput != previousSearch)
+  if (searchInput === "" || todoInput.value.trim()) {
+    alert("Please write a search term!")
+}
+
+else if (searchInput != previousSearch)
 {
   previousSearch = searchInput;
   searchResult = getMovieData(searchInput);
@@ -52,7 +51,7 @@ document.querySelector(".remove-movie-btn").addEventListener("click", removeMovi
 function clearSearch()
 {
   document.querySelector(".movieDiv").innerHTML = ""; 
-  document.querySelector(".savedmovies").innerHTML = ""; 
+  document.querySelector(".saved-moviesList-item").innerHTML = ""; 
   let as = document.querySelector("#searchBar").value = "";
   document.querySelector(".save-movie-btn").style="display :none";
 
@@ -95,24 +94,22 @@ function initialize() {
 moviePoster.src = `${movie.Poster}`;
 
 
-savedMoviesListItem.innerText = `
-      Title = ${movie.Title} 
-      Genre = ${movie.Genre}
-      Imdb Rating = ${movie.imdbRating}
-      
-      `
+
 
     const button = document.createElement("button");
-    button.innerText = movie.Title;
-  
+    button.innerText = movie.Title;  
     button.classList.add("btn");
     button.classList.add("modalBtn");
-    button.classList.add("img-center");
-  
 
-    savedMoviesDiv.appendChild(moviePoster);
-    savedMoviesDiv.appendChild(button);
-    savedMoviesDiv.append(savedMoviesListItem)
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("btnDiv");
+
+    savedMoviesDiv.appendChild(savedMoviesListItem);
+    savedMoviesListItem.appendChild(moviePoster)
+    savedMoviesListItem.appendChild(buttonDiv);
+    buttonDiv.appendChild(button);
+    
+
   });
 }
 
@@ -183,7 +180,7 @@ function toggleModal() {
 
 }
 
-
+//Makes the api call and translates the data
 async function getMovieData(searchInput) {
   let movie = await getDataAsync(searchInput);
 
@@ -210,20 +207,22 @@ Imdb Rating = ${movie.imdbRating}
 movieItem.append(moviePoster)
     const button = document.createElement("button");
     button.innerText = movie.Title;
-  
+    
     button.classList.add("btn");
     button.classList.add("modalBtnSearch");
-    button.classList.add("img-center");
-    button.style = "margin:10px;";
+    
+
 
 searchedMovie.appendChild(movieList);
 movieList.appendChild(movieItem);
-movieList.appendChild(button);
+movieItem.appendChild(button);
+
 
 searchResult = movie;
 ;
 }
 
+//The api call
 async function getDataAsync(searchInput) {
 
   let res = await axios
